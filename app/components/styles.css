@@ -1,0 +1,6 @@
+input[type="checkbox"],
+input[type="radio"] {
+  /* background:#7a5bf9l; */
+  background-color: #7a5bf9 !important;
+  border-radius: 5px;
+}
