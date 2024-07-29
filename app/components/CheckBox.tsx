@@ -16,7 +16,7 @@ export const StyledCheckBox = ({
       sx={{
         ".chakra-checkbox__control": {
           borderRadius: "5px",
-          padding: "8px",
+          padding: "6px",
         },
         '.chakra-checkbox__control[data-checked="true"]': {
           backgroundColor: "#7a5bf9",
@@ -29,13 +29,11 @@ export const StyledCheckBox = ({
         ".chakra-checkbox__control:hover": {
           borderColor: "#7a5bf9",
         },
-        ".chakra-checkbox__label": {
-          paddingLeft: "8px",
-        },
+        
       }}
       spacing="16px"
       iconSize="16px"
-      colorScheme={colorScheme}
+      colorScheme="purple"
       isChecked={isChecked}
       {...props}
     >
