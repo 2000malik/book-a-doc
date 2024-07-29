@@ -26,6 +26,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { StyledButton } from "./Button";
 import { StyledCheckBox } from "./CheckBox";
+import { StyledRadio } from "./Radio";
 
 type StyledSelectProps = {
   leftIcon: ReactElement;
@@ -44,10 +45,10 @@ const CLIENT_LIST: string[] = [
   "Christian Nwamba",
 ];
 const SESSIONS = [
-  { label: "Early Morning (Before 9am)",  },
+  { label: "Early Morning (Before 9am)" },
   { label: "Morning (9am - noon)", isChecked: true },
-  { label: "Afternoon (Noon - 4pm)",  },
-  { label: "Evening (After Noon)", },
+  { label: "Afternoon (Noon - 4pm)" },
+  { label: "Evening (After Noon)" },
 ];
 function StyledSelect({ leftIcon, label }: StyledSelectProps) {
   return (
@@ -170,81 +171,81 @@ const About = () => {
       <HStack spacing="40px" color="#000">
         <VStack w={"75%"}>
           {[...Array(3)].map((_) => (
-          <StyledCard key={_} w="full" minH="200px" overflow="hidden">
-            <CardBody>
-              <CardBadge bg="#fef0c7" iconFill="#c86e4f" fontSize="12px">
-                <Text color="#c86e4f">
-                  You have an existing appointment with this Doctor
-                </Text>
-                <Link href="#">
-                  <Text as="span" textDecoration="underline">
-                    View Details
+            <StyledCard key={_ + "#"} w="full" minH="200px" overflow="hidden">
+              <CardBody>
+                <CardBadge bg="#fef0c7" iconFill="#c86e4f" fontSize="12px">
+                  <Text color="#c86e4f">
+                    You have an existing appointment with this Doctor
                   </Text>
-                </Link>
-              </CardBadge>
-              <HStack spacing="20px">
-                <Image
-                  alt="1"
-                  src="/2.jpg"
-                  width={150}
-                  height={100}
-                  style={{ borderRadius: "10px", cursor: "pointer" }}
-                />
-                <VStack
-                  w="full"
-                  align="flex-start"
-                  fontSize="14"
-                  fontWeight="thin"
-                >
-                  <Text fontWeight="bold">Katherine Carroll, DO</Text>
-                  <Text>Primary Care Doctor</Text>
-                  <Text>
-                    <Location /> 5208 Toney Neck Suite 296
-                  </Text>
-                  <HStack>
-                    <RatingBadge />
-                    <Text textDecor="underline">(99 reviews)</Text>
-                  </HStack>
-                  <HStack>
-                    <AvatarGroup size="xs" max={3}>
-                      {React.Children.toArray(
-                        CLIENT_LIST.map((name) => <Avatar name={name} />)
-                      )}
-                    </AvatarGroup>
-                    <Text>Dyson, and 2+ more insurance accepted</Text>
-                  </HStack>
-                </VStack>
-                <HStack
-                  alignItems="flex-start" /* Align items to the top (start) */
-                  height="150px" /* Set a height for demonstration */
-                >
-                  <StyledButton
-                    leftIcon={<Info />}
-                    bg="#fff"
-                    border="1px"
-                    borderColor="#eaebef"
-                    fontSize="12px"
-                    fontWeight="normal"
-                    size="md"
-                    boxShadow="lg"
+                  <Link href="#">
+                    <Text as="span" textDecoration="underline">
+                      View Details
+                    </Text>
+                  </Link>
+                </CardBadge>
+                <HStack spacing="20px">
+                  <Image
+                    alt="1"
+                    src="/2.jpg"
+                    width={150}
+                    height={100}
+                    style={{ borderRadius: "10px", cursor: "pointer" }}
+                  />
+                  <VStack
+                    w="full"
+                    align="flex-start"
+                    fontSize="14"
+                    fontWeight="thin"
                   >
-                    More Info
-                  </StyledButton>
-                  <StyledButton
-                    leftIcon={<Calender fill="#fff" />}
-                    bg="#000"
-                    color="#fff"
-                    fontSize="12px"
-                    fontWeight="normal"
-                    size="md"
+                    <Text fontWeight="bold">Katherine Carroll, DO</Text>
+                    <Text>Primary Care Doctor</Text>
+                    <Text>
+                      <Location /> 5208 Toney Neck Suite 296
+                    </Text>
+                    <HStack>
+                      <RatingBadge />
+                      <Text textDecor="underline">(99 reviews)</Text>
+                    </HStack>
+                    <HStack>
+                      <AvatarGroup size="xs" max={3}>
+                        {React.Children.toArray(
+                          CLIENT_LIST.map((name) => <Avatar name={name} />)
+                        )}
+                      </AvatarGroup>
+                      <Text>Dyson, and 2+ more insurance accepted</Text>
+                    </HStack>
+                  </VStack>
+                  <HStack
+                    alignItems="flex-start" /* Align items to the top (start) */
+                    height="150px" /* Set a height for demonstration */
                   >
-                    Book Again
-                  </StyledButton>
+                    <StyledButton
+                      leftIcon={<Info />}
+                      bg="#fff"
+                      border="1px"
+                      borderColor="#eaebef"
+                      fontSize="12px"
+                      fontWeight="normal"
+                      size="md"
+                      boxShadow="lg"
+                    >
+                      More Info
+                    </StyledButton>
+                    <StyledButton
+                      leftIcon={<Calender fill="#fff" />}
+                      bg="#000"
+                      color="#fff"
+                      fontSize="12px"
+                      fontWeight="normal"
+                      size="md"
+                    >
+                      Book Again
+                    </StyledButton>
+                  </HStack>
                 </HStack>
-              </HStack>
-            </CardBody>
-          </StyledCard>
-           ))} 
+              </CardBody>
+            </StyledCard>
+          ))}
         </VStack>
 
         <VStack spacing="5" w={"25%"}>
@@ -279,7 +280,7 @@ const About = () => {
               <Text>All Filters</Text>
               <Divider my={3} />
               <Text>Preferred Time</Text>
-              <VStack align="flex-start" spacing="3">
+              <VStack my={3} align="flex-start" spacing="3">
                 {SESSIONS.map(({ label, isChecked }) => (
                   <StyledCheckBox
                     key={label}
@@ -289,6 +290,7 @@ const About = () => {
                 ))}
               </VStack>
               <Text>Provider Gender</Text>
+              <StyledRadio />
               <Text>Visitation reason</Text>
               <Text>Specialty</Text>
               <Text>Rating / Review</Text>
